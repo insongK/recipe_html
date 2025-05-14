@@ -1,0 +1,234 @@
+:root {
+  --wowGray: rgba(0, 0, 0, 0.4);
+  --borderRadius: 25px;
+  --mainHeight: 40vh;
+  --clickedBlue: #0984e3;
+  --titleColor: rgba(100, 32, 32);
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: Helvetica;
+  background-color: #f6f6fa;
+  padding-left: 20px;
+  padding-right: 20px;
+  padding-bottom: 30px;
+}
+
+.header {
+  margin-top: 20px;
+  margin-bottom: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.header__title {
+  font-size: 28px;
+  color: var(--titleColor);
+}
+
+.header__subtitle {
+  font-size: 13px;
+  margin-top: 10px;
+  color: var(--wowGray);
+}
+
+.header__icons {
+  align-self: flex-start;
+}
+
+.header__icon img {
+  width: 20px;
+  height: 20px;
+  padding: 10px;
+  opacity: 0.5;
+}
+
+.recipe {
+  height: var(--mainHeight);
+  border-radius: var(--borderRadius);
+  background-image: url("https://i.pinimg.com/564x/a1/62/b0/a162b0ede50024faddc09798bb7da7b2.jpg");
+  background-size: cover;
+  background-position: center center;
+  position: relative;
+  display: flex;
+  justify-content: center;
+}
+
+.recipe .recipe__heart {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  border-radius: 50%;
+  padding: 10px;
+  padding-bottom: 5px;
+  background-color: rgb(220, 200, 200);
+}
+.recipe__info {
+  background-color: white;
+  border-radius: var(--borderRadius);
+  width: 70%;
+  height: calc(0.33 * var(--mainHeight));
+  padding: 8px 20px;
+
+  display: grid;
+  grid-auto-flow: row;
+  grid-template-rows: 1fr 1fr 1fr;
+  align-items: center;
+  position: relative;
+  top: calc(0.8 * var(--mainHeight));
+  box-shadow: 0 10px 20px 10px rgba(50, 50, 50, 0.1),
+    0 5px 10px 5px rgba(0, 0, 0, 0.2);
+}
+.recipe__title {
+  font-size: 26px;
+  font-weight: 800;
+}
+.recipe__meta {
+  font-size: 12px;
+  height: 100%;
+  color: var(--wowGray);
+  border-bottom: 0.3px solid var(--wowGray);
+  display: flex;
+  align-items: center;
+}
+
+.recipe__meta-data:hover {
+  color: var(--clickedBlue);
+}
+.recipe__social {
+  font-size: 15px;
+  display: flex;
+  justify-content: space-between;
+  padding-right: 10px;
+}
+
+.recipe__social img {
+  width: 15px;
+  height: 15px;
+  margin-right: 5px;
+}
+
+/* ─────────────  Recommended 영역  ───────────── */
+
+.recommended {
+  margin-top: 110px;
+}
+
+/* 제목 · “See all” */
+.recommended__header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 16px;
+}
+
+.recommended__title {
+  font-size: 20px;
+  font-weight: 700;
+}
+
+.recommended__small {
+  font-size: 14px;
+  color: var(--wowGray);
+  &:hover {
+    color: var(--clickedBlue);
+  }
+  cursor: pointer;
+  user-select: none;
+}
+
+/* 가로 스크롤 컨테이너 */
+.recommended__grid {
+  display: flex;
+  gap: 18px; /* 카드 사이 간격 */
+  overflow-x: auto; /* 좌→우 스크롤 */
+  scroll-behavior: smooth;
+  padding-bottom: 6px; /* 스크롤바와 카드 간격 */
+}
+
+/* 스크롤바(크롬·사파리 등) 최소화 & 미려하게 */
+.recommended__grid::-webkit-scrollbar {
+  height: 6px;
+}
+.recommended__grid::-webkit-scrollbar-track {
+  background: transparent;
+}
+.recommended__grid::-webkit-scrollbar-thumb {
+  background: rgba(0, 0, 0, 0.15);
+  border-radius: 3px;
+}
+
+/* 개별 카드 */
+.recommended__recipe {
+  flex: 0 0 330px; /* 고정폭 카드 */
+  background: #fff;
+  border-radius: var(--borderRadius);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+  display: flex;
+  flex-direction: column;
+  cursor: pointer;
+  transition: transform 0.25s ease;
+}
+.recommended__recipe:hover {
+  transform: translateY(-4px);
+}
+
+/* 카드 이미지 영역 */
+.recommended__image {
+  flex: 0 0 140px;
+  border-radius: var(--borderRadius) var(--borderRadius) 0 0;
+  background-size: cover;
+  background-position: center;
+}
+
+/* 카드 텍스트 영역 */
+.recommended__info {
+  padding: 12px 14px 16px;
+}
+.recommended__info-title {
+  font-size: 15px;
+  font-weight: 600;
+  margin-bottom: 6px;
+}
+.recommended__info-subtitle {
+  font-size: 12px;
+  color: var(--wowGray);
+}
+
+/* 각 카드별 썸네일 이미지 */
+.recommended__recipe:nth-child(1) .recommended__image {
+  background-image: url("https://i.pinimg.com/564x/c3/96/d9/c396d925bffe6290c3d9346e14db6193.jpg");
+}
+.recommended__recipe:nth-child(2) .recommended__image {
+  background-image: url("https://i.pinimg.com/564x/cc/fe/e8/ccfee8ad55004a022588a7662a24aeac.jpg");
+}
+.recommended__recipe:nth-child(3) .recommended__image {
+  background-image: url("https://i.pinimg.com/564x/30/be/b1/30beb19d106b94dcd460b1a4ed6a8e8f.jpg");
+}
+.recommended__recipe:nth-child(4) .recommended__image {
+  background-image: url("https://i.pinimg.com/564x/b2/74/45/b27445830bd257d1258f556df146c8d0.jpg");
+}
+.recommended__recipe:nth-child(5) .recommended__image {
+  background-image: url("https://i.pinimg.com/564x/c5/61/13/c56113856cbec06df485ecd60eeac7f8.jpg");
+}
+
+/* 작은 모바일 화면에서 살짝 더 좁게 */
+@media (max-width: 420px) {
+  .recommended__recipe {
+    flex: 0 0 180px;
+  }
+  .recommended__image {
+    flex: 0 0 120px;
+  }
+}
